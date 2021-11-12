@@ -1,6 +1,5 @@
 ## Five Green Thumbs
 
-
 #### An app that will serve as a platform for users to showcase their plants.
 
 #### MVP Goals
@@ -20,12 +19,32 @@
 
 #### Wireframes
 ![wireframe](assets/wireframe.png)
-#### API
-* Trefle is a botanical JSON REST API for plants species, allowing you to search and query over all the registered species
 
 #### ERD<br>
 ![ERD](assets/erd.png)
 <br>
+
+#### Routes
+
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------------------- |
+| GET | `/` | home page |
+| GET | `/auth/login` | login page for new user |
+| POST | `/auth/login` | existing user |
+| GET | `/auth/signup` | sign up page |
+| POST | `/auth/login` | creates new user in database |
+| GET | `/auth/logout` | logout page |
+| GET | `/plants` | plant database |
+| GET | `/plants/:id` | information on plant |
+| POST | `/plants` | associates plant with user |
+| GET | `/plants/search` | search for plant in database |
+| GET | `/plants/error` | error page when plant is not in database |
+| POST | `/comments` | adds comment to user's plant |
+| DELETE | `/comments/:id` | deletes comment to user's plant |
+
+#### API
+* Trefle is a botanical JSON REST API for plants species, allowing you to search and query over all the registered species
+
 Using node-fetch module:
 ```
 const fetch = require('node-fetch');
