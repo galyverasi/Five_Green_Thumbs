@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "five_green_thumbs_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "five_green_thumbs_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "five_green_thumbs_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
