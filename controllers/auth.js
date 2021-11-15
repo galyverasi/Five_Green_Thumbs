@@ -3,17 +3,22 @@ const router = express.Router()
 const db = require('../models')
 const passport = require('../config/ppConfig.js')
 const isLoggedIn = require('../middleware/isloggedIn.js')
+const bcrypt = require('bcrypt')
 
 router.get('/signup', (req, res)=>{
     res.render('auth/signup')
 })
 
 router.post('/signup', (req, res)=>{
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(req.body.password, salt, function(err, hash) {
+            // Store hash in your password DB.
+       
     db.user.findOrCreate({
         where: {email: req.body.email},
         defaults: {
             name: req.body.name,
-            password: req.body.password
+            password: hash
         }
     })
     .then(([createdUser, wasCreated])=>{
@@ -33,7 +38,9 @@ router.post('/signup', (req, res)=>{
     .catch(err =>{ // !-> FLASH <-!
         req.flash('error', err.message) 
         res.redirect('/auth/signup')
-    })
+            })
+        });
+    });
 })
 
 router.get('/login', (req, res)=>{

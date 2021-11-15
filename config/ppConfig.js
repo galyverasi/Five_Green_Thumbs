@@ -68,6 +68,8 @@ const findAndLogInUser = (email, password, doneCallback) => {
     .then(async foundUser=>{
         let match
         if(foundUser){
+            console.log(`dbPassword ${foundUser.password}`)
+            console.log(`hashedPassword ${foundUser.password}`)
             match = await bcrypt.compare(password, foundUser.password)
         }
         if (!foundUser || !match) { 
