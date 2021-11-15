@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Express Auth</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Leggo my Veggo</title>
 </head>
 <body>
+  <div class="bg-image" 
+  style="background-image: url('https://i.postimg.cc/LsXGjJVM/veg.jpg');
+         height: 100vh">
     <header>
-        <h1>Express Authentication Boilerplate</h1>
-        <nav>
-            <ul>
-              <% if (!currentUser) { %>
-                <li><a href="/auth/signup">Signup</a></li>
-                <li><a href="/auth/login">Login</a></li>
-              <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Profile</a></li>
+      <h1>Leggo my Veggo</h1>
+      <nav>
+        <ul>
+          <% if (!currentUser) { %>
+            <a href="/auth/signup">signup</a>
+            <a href="/auth/login">login</a>
+            <% } else { %>
+              <a href="/auth/logout">logout</a>
+              <a href="/profile">profile</a>
               <% } %>
             </ul>
           </nav>
-    </header>
-    <%- include('partials/alerts') %>
-    <%- body %> 
+        </header>
+        <%- include('partials/alerts') %>
+        <%- body %> 
+      </div>
 </body>
 </html>

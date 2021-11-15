@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "five_green_thumbs_development",
+    "database": "leggo_my_veggo_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "five_green_thumbs_test",
+    "database": "leggo_my_veggo_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "five_green_thumbs_production",
+    "database": "leggo_my_veggo_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

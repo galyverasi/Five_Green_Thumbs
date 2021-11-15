@@ -1,15 +1,15 @@
-## Five Green Thumbs
+## Leggo my Veggo
 
-#### An app that will serve as a platform for users to showcase their plants.
+#### Find your local vegan or vegetarian restaurant
 
 #### MVP Goals
- 1. Users will be able to create a profile with basic information
- 2. Users will be able to create or delete a profile of their plant.
- 3. Be able to leave comments or give tips to other users
- 4. Display information on how to take care of common indoor plants
+ 1. Users will be able to create a account with basic information
+ 2. Users will be able to search local restaurants by zip code
+ 2. Users will be able to save or delete a restaurant
+ 3. Be able to leave comments or reviews on a restaurant
 
 #### Stretch Goals
- 1. Users will be able to upload a photo of their plant using an API
+ 1. Users will be able to leave a rating on a restaurant
 
 #### Tech stack
 * NodeJS
@@ -34,90 +34,34 @@
 | GET | `/auth/signup` | sign up page |
 | POST | `/auth/login` | creates new user in database |
 | GET | `/auth/logout` | logout page |
-| GET | `/plants` | plant database |
-| GET | `/plants/:id` | information on plant |
-| POST | `/plants` | associates plant with user |
-| GET | `/plants/search` | search for plant in database |
-| GET | `/plants/error` | error page when plant is not in database |
-| POST | `/comments` | adds comment to user's plant |
-| DELETE | `/comments/:id` | deletes comment to user's plant |
+| GET | `/restaurants` | restaurant database |
+| GET | `/restaurants/:id` | information on restaurant |
+| POST | `/comments` | adds comment to user's saved restaurant |
+| DELETE | `/restaurants/:id` | deletes a saved restaurant |
 
 #### API
-* Trefle is a botanical JSON REST API for plants species, allowing you to search and query over all the registered species
+* Documenu is an API providing access to a database of over US 600,000 restaurants and their menus
 
-Using node-fetch module:
 ```
-const fetch = require('node-fetch');
-
-(async () => {
-  const response = await fetch('https://trefle.io/api/v1/plants?token=YOUR_TREFLE_TOKEN');
-  const json = await response.json();
-  console.log(json);
-})();
+https://api.documenu.com/v2/restaurants/search/fields?cuisine=vegan, vegetarian&zip_code=80246
 ```
 JSON response looks like this:
 ```
-{
-    "data": [
-        {
-            "author": "Schltr.",
-            "bibliography": "Repert. Spec. Nov. Regni Veg. 16: 358 (1920)",
-            "common_name": null,
-            "family": "Orchidaceae",
-            "family_common_name": null,
-            "genus": "Aa",
-            "genus_id": 14887,
-            "id": 834556,
-            "links": {
-                "genus": "/api/v1/genus/aa",
-                "plant": "/api/v1/plants/aa-achalensis",
-                "self": "/api/v1/species/aa-achalensis"
-            },
-            "plant_id": 423071,
-            "rank": "species",
-            "scientific_name": "Aa achalensis",
-            "slug": "aa-achalensis",
-            "status": "accepted",
-            "synonyms": [],
-            "year": 1920
-        },
-        {
-            "author": "Rchb.f.",
-            "bibliography": "Xenia Orchid. 1: 18 (1854)",
-            "common_name": null,
-            "family": "Orchidaceae",
-            "family_common_name": null,
-            "genus": "Aa",
-            "genus_id": 14887,
-            "id": 834557,
-            "links": {
-                "genus": "/api/v1/genus/aa",
-                "plant": "/api/v1/plants/aa-argyrolepis",
-                "self": "/api/v1/species/aa-argyrolepis"
-            },
-            "plant_id": 423072,
-            "rank": "species",
-            "scientific_name": "Aa argyrolepis",
-            "slug": "aa-argyrolepis",
-            "status": "accepted",
-            "synonyms": [
-                "Altensteinia argyrolepis"
-            ],
-            "year": 1854
-        },  // ... 28 more items
-    ],
-    "links": {
-        "first": "/api/v1/species?page=1",
-        "last": "/api/v1/species?page=20865",
-        "next": "/api/v1/species?page=2",
-        "self": "/api/v1/species"
-    },
-    "meta": {
-        "total": 417293
-    }
+3:{12 items
+"restaurant_name":"Garbanzo Mediterranean Fresh"
+"restaurant_phone":"(303) 757-5900"
+"restaurant_website":"http:///co/glendale/614531-garbanzo-mediterranean-fresh/"
+"hours":""
+"price_range":""
+"price_range_num":0
+"restaurant_id":39705341104940230
+"cuisines":[1 item
+0:""
+]
+"address":{...}5 items
+"geo":{...}2 items
+"menus":[]0 items
+"last_updated":"2021-01-05T07:20:54.515Z"
 }
 ```
-
 #### Potential Roadblocks
-* Trefle API is now read-only
-* Learning how to use Cheerio to gather information on plants
