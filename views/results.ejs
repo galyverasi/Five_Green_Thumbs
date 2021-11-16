@@ -1,0 +1,18 @@
+<ul>
+    <%results.data.forEach(function(result) {%>
+        <li>
+            <a href="/<%=result.name%>">
+                <%=result.restaurant_name%>
+            </a>
+                <ul class="list-group">
+                    <ul><%=result.price_range%></ul>
+                    <ul><%=result.restaurant_phone%></ul>
+                    <ul><%=result.hours%></ul>
+                    <ul><%=result.address.formatted%></ul>
+
+                </ul>
+
+           
+        </li>
+        <%})%>
+</ul>

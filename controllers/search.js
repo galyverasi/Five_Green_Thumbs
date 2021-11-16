@@ -18,4 +18,8 @@ router.get('/results', isLoggedIn, (req, res) => {
     })
 })
 
+router.get('/', isLoggedIn, (req, res) => {
+    res.render('search')
+})
+
 module.exports = router
