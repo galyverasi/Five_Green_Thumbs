@@ -1,3 +1,4 @@
+<a href="/auth/logout">Logout</a>
 <h2><%= currentUser.name %>'s Profile</h2>
 <h2>Saved Restaurants</h2>
 <% results.data.forEach(restaurant_name => { %>
@@ -8,5 +9,22 @@
         <button type="submit">delete</button>
     </form>
 <%})%>
+<h3>Rate this restaurant</h3>
+    <form method="POST" action="/saved/<%= name %>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+
+<h3>Leave a comment</h3>
+    <form method="POST" action="/saved/<%= name %>
+        <label for="name">Your Name:</label>
+        <input type="text" name="name">
+        <label for="content">Comment:</label>
+        <input type="text" name="content">
+        <input type="submit">
+    </form>
 
 <a href="/">back to the list</a>

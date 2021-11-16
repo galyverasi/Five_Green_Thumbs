@@ -21,7 +21,7 @@ app.use(methodOverride('_method'))
 // session middleware
 app.use(session({
     secret: process.env.SUPER_SECRET_SECRET,
-    resave: false,
+    resave: true,
     saveUninitialized: true
 }))
 
@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 app.use('/search', require('./controllers/search.js'))
-
+app.use('/profile', require('./controllers/profile.js'))
 
 // home route
 app.get('/', (req, res)=>{

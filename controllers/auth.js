@@ -44,17 +44,43 @@ router.post('/signup', (req, res)=>{
 })
 
 router.get('/login', (req, res)=>{
-    res.render('auth/login')
+    if (req.user) {
+        res.render('/search')
+    } else {
+        res.render('auth/login')
+    }
+    
 })
 
-router.post('/login', passport.authenticate('local', {
-        failureRedirect: '/auth/login',
-        successRedirect: '/', // !-> FLASH <-!
-        failureFlash: 'Invalid username and/or password.',
-        successFlash: 'You are now logged in.'
-    })
+router.post('/login', (req, res, next) => {
+    console.log('logging in')
+    passport.authenticate('local', (err, user, info) => {
+        if(err) {
+            return next(err)
+        }
+        if (!user) {
+            return res.redirect('/login')
+        }
+        req.logIn(user, (err) => {
+            if(err) {
+                return next(err)
+            }
+            console.log(`logged in as ${user.name}`)
+            req.session.user= user.name 
+            req.session.userId= user.id
+            res.redirect('/search')
+        })
+    }) (req, res, next)
+    }
 )
 
+
+// {
+//     failureRedirect: '/auth/login',
+//     successRedirect: '/search', // !-> FLASH <-!
+//     failureFlash: 'Invalid username and/or password.',
+//     successFlash: 'You are now logged in.'
+//     }
 router.get('/logout', (req, res)=>{
     req.logout() // !-> FLASH <-!
     req.flash('Success! You\'re logged out.')

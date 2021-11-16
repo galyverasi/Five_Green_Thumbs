@@ -7,22 +7,14 @@
     <label class="form-check-label" for="inlineRadio1">vegetarian</label>        
     <input type="submit" class="btn-secondary">
 </form>
+<h5>Rate and leave a comment? Save it to your profile</h5>
 
-<ul>
     <%results.data.forEach(function(result) {%>
-        <li>
-            <a href="/<%=result.name%>">
-                <%=result.restaurant_name%>
-            </a>
-                <ul>
-                    <ul><%=result.price_range%></ul>
-                    <ul><%=result.restaurant_phone%></ul>
-                    <ul><%=result.hours%></ul>
-                    <ul><%=result.address.formatted%></ul>
-
-                </ul>
-
-                <button type="submit">save restaurant</button>
-        </li>
+        <form method="POST" action="/profile/saveRestaurant/<%= result.restaurant_name %>">
+        <%=result.restaurant_name%><button type="submit">save restaurant</button>
+        </form>
+        <ul> price range: <%=result.price_range%></ul>
+        <ul> phone number: <%=result.restaurant_phone%></ul>
+        <ul> hours: <%=result.hours%></ul>
+        <ul> location: <%=result.address.formatted%></ul>       
         <%})%>
-</ul>

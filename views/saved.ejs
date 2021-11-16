@@ -1,0 +1,13 @@
+<a href="/search/<%= name %>"> name:<%= currentUser %></a>
+<h3>Saved Restaurants</h3>
+    <%/*results.data.forEach(result => {*/%>
+    <p>
+        <a href="/search/<%= name %>"> <%= name %></a>    
+    </p>
+    <form action="/search/<%= name %>?_method=DELETE" method="POST">
+        <button type="submit">delete</button>
+    </form>
+<%/*})*/%>
+<p>
+<a href="/search/results">back to list of restaurants</a>
+</p>
