@@ -1,10 +1,20 @@
+<form action="/search/results" method="POST">
+    <label for="zip code">find restaurants by zip code</label>
+    <input type="text" name="zipCode" placeholder="90210">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+    <label class="form-check-label" for="inlineRadio1">vegan</label>
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+    <label class="form-check-label" for="inlineRadio1">vegetarian</label>        
+    <input type="submit" class="btn-secondary">
+</form>
+
 <ul>
     <%results.data.forEach(function(result) {%>
         <li>
             <a href="/<%=result.name%>">
                 <%=result.restaurant_name%>
             </a>
-                <ul class="list-group">
+                <ul>
                     <ul><%=result.price_range%></ul>
                     <ul><%=result.restaurant_phone%></ul>
                     <ul><%=result.hours%></ul>
@@ -12,7 +22,7 @@
 
                 </ul>
 
-           
+                <button type="submit">save restaurant</button>
         </li>
         <%})%>
 </ul>
