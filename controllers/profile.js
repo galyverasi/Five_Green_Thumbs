@@ -1,31 +1,40 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
+const isLoggedIn = require('../middleware/isLoggedIn')
 
 // POST route that will save a restaurant to userRestaurant
-router.post('/saveRestaurant/:name', (req, res) => {
+router.post('/saveRestaurant/:name', isLoggedIn, (req, res) => {
     console.log(`currentUser: ${req.session.userId}`)
     console.log(`savedRestaurant: ${req.params.name}`)
-    db.userRestaurant.create({
-        name: req.params.name, 
-        userId: req.session.userId
+    db.userRestaurant.findOne({
+        where: {name:req.params.name}
     })
-    .then(createdSave => {
-        console.log('db instance created: \n', createdSave)
-        res.redirect(`/profile/${req.params.name}`)
+    .then((result)=>{
+        if(!result) {
+        db.userRestaurant.create({
+            name: req.params.name, 
+            userId: req.session.userId
+        })
+        .then(createdSave => {
+            console.log('db instance created: \n', createdSave)
+            // res.redirect(`/profile/${req.params.name}`)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    } else {
+        console.log('this restaurant was already saved')
+
+    }
     })
-    .catch(error => {
-        console.log(error)
+    .catch((err)=>{
+        console.log(err)
     })
-})
-router.get('/:name', (req, res) => {
-    console.log(`visiting page profile/${req.params.name}`)
-    console.log(`current user/${req.session.user}`)
-    res.render('saved', {name:req.params.name, currentUser:req.session.userId})
 })
 
 // POST route that will add a comment to userRestaurant
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
     db.review.create({
         name: req.params.name,
         userId: req.session.userId
@@ -40,7 +49,7 @@ router.post('/', (req, res) => {
 })
 
 // DELETE that will remove a saved restaurant
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isLoggedIn, (req, res) => {
     // console.log('this is the id\n', res.params.id)
     db.userRestaurant.destroy({
         where: { id: req.params.id }

@@ -9,7 +9,6 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 const axios = require('axios')
 const methodOverride = require('method-override')
 
-
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
@@ -42,8 +41,9 @@ app.use((req, res, next) => {
 
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
-app.use('/search', require('./controllers/search.js'))
 app.use('/profile', require('./controllers/profile.js'))
+app.use('/saved', require('./controllers/saved.js'))
+app.use('/search', require('./controllers/search.js'))
 
 // home route
 app.get('/', (req, res)=>{
@@ -54,7 +54,6 @@ app.get('/', (req, res)=>{
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
-
 
 app.listen(3000, ()=>{
     // console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)

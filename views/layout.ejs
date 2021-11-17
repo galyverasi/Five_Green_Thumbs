@@ -7,17 +7,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Leggo my Veggo</title>
 </head>
-<body>
+<body>  
   <div class="bg-image" 
   style="background-image: url('https://i.postimg.cc/LsXGjJVM/veg.jpg');
-         height: 100vh">
+        height: 500px; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        height: 100vh">
     <header>
-      <h1>Leggo my Veggo</h1>
-      <nav>
-        <ul>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <!-- <div class="navbar-header">
+            <a class="navbar-brand" href="#">Leggo My Veggo</a>
+          </div> -->
+        <ul class="nav navbar-nav navbar-right">
           <% if (!currentUser) { %>
-            <a href="/auth/signup">signup</a>
-            <a href="/auth/login">login</a>
+            <li><a href="/auth/signup"><span class="glyphicon glyphicon-user"></span> sign up</a></li>
+            <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
             <% } else { %>
               <a href="/auth/logout">logout</a>
               <a href="/profile">profile</a>
