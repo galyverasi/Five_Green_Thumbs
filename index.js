@@ -28,6 +28,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+// method override middleware
+app.use(methodOverride('_method'))
+
 // flash middleware (must go AFTER session middleware)
 app.use(flash())
 

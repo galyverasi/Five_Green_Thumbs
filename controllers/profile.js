@@ -51,13 +51,13 @@ router.post('/', isLoggedIn, (req, res) => {
 // DELETE that will remove a saved restaurant
 router.delete('/:id', isLoggedIn, (req, res) => {
     // console.log('this is the id\n', res.params.id)
-    db.userRestaurant.destroy({
-        where: { id: req.params.id }
+    db.userRestaurant.destroy({ 
+        where: { id: req.params.name }
     })
     .then(deletedRestaurant => {
         // destroy returns '1' if something was deleted and '0' if nothing happened
-        // console.log('you deleted: ', deletedRestaurant)
-        res.redirect('/')
+        console.log('you deleted: ', deletedRestaurant)
+        res.redirect('/saved')
     })
     .catch(error => {
         console.log(error)
