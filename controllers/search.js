@@ -28,8 +28,8 @@ router.get('/results', isLoggedIn, (req, res) => {
     })
 })
 
-// POST route that will save found restaurants to database
-router.post('/saveRestaurant/:name', isLoggedIn, (req, res) => {
+// POST route that will save found restaurants
+router.post('/saved/:name', isLoggedIn, (req, res) => {
     db.restaurant.create({
         name: req.params.restaurant_name,
         priceRange: req.params.price_range,
@@ -39,7 +39,7 @@ router.post('/saveRestaurant/:name', isLoggedIn, (req, res) => {
     })
     .then(searchedRestaurant => {
         console.log('db instance created: \n', searchedRestaurant)
-        res.redirect(`/search/${req.params.name}`)
+        res.redirect(`/saved/${req.params.name}`)
     })
     .catch(error => {
         console.log(error)

@@ -3,6 +3,18 @@ const router = express.Router()
 const db = require('../models')
 const isLoggedIn = require('../middleware/isLoggedIn')
 
+// GET route that will display saved restaurants
+router.get('/', isLoggedIn, (req, res) => {
+    db.userRestaurant.findAll({
+        where: {userId:req.session.userId}
+    })
+    .then(found => {
+        res.render('saved', {name:req.params.name, currentUser:req.session.user, results:found})
+    })
+})
+
+
+
 // POST route that will save a restaurant to userRestaurant
 router.post('/saveRestaurant/:name', isLoggedIn, (req, res) => {
     console.log(`currentUser: ${req.session.userId}`)
