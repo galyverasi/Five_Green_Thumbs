@@ -23,11 +23,11 @@
           </div> -->
         <ul class="nav navbar-nav navbar-right">
           <% if (!currentUser) { %>
-            <li><a href="/auth/signup"><span class="glyphicon glyphicon-user"></span> sign up</a></li>
-            <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in"></span> login</a></li>
+            <li> <a href="/auth/signup"> <span class="glyphicon glyphicon-user"></span> sign up</a> </li>
+            <li> <a href="/auth/login"> <span class="glyphicon glyphicon-log-in"></span> login</a> </li>
             <% } else { %>
-              <a href="/auth/logout">logout</a>
-              <a href="/profile">profile</a>
+              <li> <a href="/auth/logout"> <span class="glyphicon glyphicon-log-out"></span> logout</a> </li>
+              <li> <a href="/profile"> <span class="glyphicon glyphicon-leaf"></span> profile</a> </li>
               <% } %>
             </ul>
           </nav>

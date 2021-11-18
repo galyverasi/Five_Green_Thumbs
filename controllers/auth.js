@@ -53,7 +53,6 @@ router.get('/login', (req, res)=>{
 })
 
 router.post('/login', (req, res, next) => {
-    console.log('logging in')
     passport.authenticate('local', (err, user, info) => {
         if(err) {
             return next(err)
@@ -65,7 +64,6 @@ router.post('/login', (req, res, next) => {
             if(err) {
                 return next(err)
             }
-            console.log(`logged in as ${user.name}`)
             req.session.user= user.name 
             req.session.userId= user.id
             res.redirect('/search')
@@ -73,8 +71,6 @@ router.post('/login', (req, res, next) => {
     }) (req, res, next)
     }
 )
-
-
 // {
 //     failureRedirect: '/auth/login',
 //     successRedirect: '/search', // !-> FLASH <-!

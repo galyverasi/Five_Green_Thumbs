@@ -13,6 +13,64 @@ router.get('/', isLoggedIn, (req, res) => {
     })
 })
 
+// POST route that will add a comment to userRestaurant
+router.post('/', isLoggedIn, (req, res) => {
+    db.review.create({
+        name: req.params.name,
+        userId: req.session.userId
+    })
+    .then(createdReview => {
+        console.log('db instance created: \n', createdReview)
+        res.redirect(`/profile/${req.params.name}`)
+    })
+    .catch(error => {
+        console.log(error)
+    }) 
+})
+
+// GET render comment page
+router.get('/comment/:id', isLoggedIn, (req, res) => {
+    db.userRestaurant.findOne({
+        where: {id:req.params.id}
+    })
+    .then(result => {
+        res.render("comment", {id:req.params.id, result:result})
+    })
+})
+
+// POST 
+router.post('/comment/:id', isLoggedIn, (req, res) => {
+    // console.log('this is the id\n', res.params.id)
+    db.reviews.create({ 
+        restaurantId: req.params.id,
+        userId: req.session.userId,
+        comment: req.query.comment
+    })
+    .then(comment => {
+        // destroy returns '1' if something was deleted and '0' if nothing happened
+        console.log('you deleted: ', deletedRestaurant)
+        res.redirect('/profile')
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
+// DELETE that will remove a saved restaurant
+router.post('/delete/:name', isLoggedIn, (req, res) => {
+    // console.log('this is the id\n', res.params.id)
+    db.userRestaurant.destroy({ 
+        where: { name: req.params.name }
+    })
+    .then(deletedRestaurant => {
+        console.log('you deleted: ', deletedRestaurant)
+        res.redirect('/profile')
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
 // POST route that will save a restaurant to userRestaurant
 router.post('/:name', isLoggedIn, (req, res) => {
     console.log(`currentUser: ${req.session.userId}`)
