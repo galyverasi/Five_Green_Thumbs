@@ -13,21 +13,6 @@ router.get('/', isLoggedIn, (req, res) => {
     })
 })
 
-// DELETE that will remove a saved restaurant
-router.post('/delete/:name', isLoggedIn, (req, res) => {
-    // console.log('this is the id\n', res.params.id)
-    db.userRestaurant.destroy({ 
-        where: { name: req.params.name }
-    })
-    .then(deletedRestaurant => {
-        console.log('you deleted: ', deletedRestaurant)
-        res.redirect('/profile')
-    })
-    .catch(error => {
-        console.log(error)
-    })
-})
-
 // POST route that will save a restaurant to userRestaurant
 router.post('/:name', isLoggedIn, (req, res) => {
     console.log(`currentUser: ${req.session.userId}`)
