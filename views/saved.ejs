@@ -4,10 +4,7 @@
     <p>
         <a href="/search/<%= result.name %>"> <%= result.name %></a>    
     </p>
-    <form action="/saved/<%= result.name %>/?_method=DELETE" method="POST">
+    <form action="/profile/delete/<%= result.name %>" method="POST">
         <input type="submit" value="Delete">
     </form>
 <%})%>
-<p>
-<a href="/results">back to list of restaurants</a>
-</p>

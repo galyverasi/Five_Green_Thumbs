@@ -13,9 +13,9 @@ const methodOverride = require('method-override')
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
-// body parser middelware
+// body parser middleware
 app.use(express.urlencoded({extended:false}))
-app.use(methodOverride('_method'))
+
 
 // session middleware
 app.use(session({
@@ -23,6 +23,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
 
 // passport middleware
 app.use(passport.initialize())

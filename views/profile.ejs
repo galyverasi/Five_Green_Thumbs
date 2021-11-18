@@ -1,30 +1,16 @@
-<a href="/auth/logout">Logout</a>
-<h2><%= currentUser.name %>'s Profile</h2>
 <h2>Saved Restaurants</h2>
-<% results.data.forEach(restaurant_name => { %>
-    <p>
-        <a href="/search/<%= result.restaurant_name %>"> <%= result.restaurant_name %></a>
-    </p>
-    <form action="/search<%= result.restaurant_name %>?_method=DELETE" method="POST">
-        <button type="submit">delete</button>
+    <% results.forEach(result => { %>
+        <p>
+        <%= result.name %>
+        </p>
+
+    <form action="/profile/delete/<%= result.name %>" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+
+    <form action="/profile/comment/<%= result.id %>" method="GET">
+        <button type="submit">leave a rating</button>
     </form>
 <%})%>
-<h3>Rate this restaurant</h3>
-    <form method="POST" action="/saved/<%= name %>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
 
-<h3>Leave a comment</h3>
-    <form method="POST" action="/saved/<%= name %>
-        <label for="name">Your Name:</label>
-        <input type="text" name="name">
-        <label for="content">Comment:</label>
-        <input type="text" name="content">
-        <input type="submit">
-    </form>
-
-<a href="/">back to the list</a>
+<a href="/search/results">back to saved restaurants</a>

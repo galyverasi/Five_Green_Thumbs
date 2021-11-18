@@ -1,21 +1,13 @@
-<form action="/search/results" method="POST">
-    <label for="zip code">find restaurants by zip code</label>
-    <input type="text" name="zipCode" placeholder="10001">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-    <label class="form-check-label" for="inlineRadio1">vegan</label>
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-    <label class="form-check-label" for="inlineRadio1">vegetarian</label>        
-    <input type="submit" class="btn-secondary">
-</form>
 <h5>Rate and leave a comment? Save it to your profile</h5>
 
-    <%results.data.forEach(function(result) {%>
-        <form method="POST" action="/saved/<%= result.restaurant_name %>">
+<%results.data.forEach(function(result) {%>
+        <form action="/profile/<%= result.restaurant_name %>" method="POST" >
         <%=result.restaurant_name%><button type="submit">save restaurant</button>
         </form>
-        <ul> price range: <%=result.price_range%></ul>
-        <ul> phone number: <%=result.restaurant_phone%></ul>
-        <ul> hours: <%=result.hours%></ul>
-        <ul> location: <%=result.address.formatted%></ul>       
+            <ul> price range: <%=result.price_range%></ul>
+            <ul> phone number: <%=result.restaurant_phone%></ul>
+            <ul> hours: <%=result.hours%></ul>
+            <ul> location: <%=result.address.formatted%></ul>       
         <%})%>
-<a href="/saved">view my restaurants</a>
+
+<a href="/profile">view my restaurants</a>
