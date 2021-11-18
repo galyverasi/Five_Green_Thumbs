@@ -1,4 +1,4 @@
-<p>comment</p>
+<h2>Leave a review</h2>
 
 <p>
     <%= id %>
@@ -14,6 +14,7 @@
     <li><i class="fa fa-star" title="Rate 2"></i></li>
     <li><i class="fa fa-star" title="Rate 1"></i></li>
   </ul>
-<form action="/profile/comment/<%=id%>" method="POST">
-<input type="text" name="comment">
+  <form action="/profile/comment/<%=id%>" method="POST">
+    <input type="text" name="comment">
+    <input type="submit">
 </form>

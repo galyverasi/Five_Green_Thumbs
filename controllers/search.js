@@ -43,28 +43,24 @@ router.get('/results', isLoggedIn, (req, res) => {
     }
     axios.get(searchRoute)
     .then(apiRes => {
-        // console.log("this is apiRes.data", apiRes.data)
-        let name = apiRes.data.restaurant_name
+        const name = apiRes.data.restaurant_name
         const results = apiRes.data
+        //console.log("this is apiRes.data", results)
+        results.data.forEach((data) => {
+        console.log("this is the next", data)
+            db.restaurant.findOrCreate({
+                where: { name: data.restaurant_name},
+                defaults: {
+                    name: data.restaurant_name,
+                    priceRange: data.price_range,
+                    phoneNumber: data.restaurant_phone,
+                    hours: data.hours,
+                    address: data.address.formatted,
+                    userId: req.session.userId,
+            }
+        })
+    })
     res.render('results', {results:results, name:name})
-    })
-    .catch(error => {
-        console.log(error)
-    })
-})
-
-// POST route that will save found restaurants
-router.post('/saved/:name', isLoggedIn, (req, res) => {
-    db.restaurant.create({
-        name: req.params.restaurant_name,
-        priceRange: req.params.price_range,
-        phoneNumber: req.params.restaurant_phone,
-        hours: req.params.hours,
-        address: req.params.address.formatted
-    })
-    .then(searchedRestaurant => {
-        console.log('db instance created: \n', searchedRestaurant)
-        res.redirect(`/profile/${req.params.name}`)
     })
     .catch(error => {
         console.log(error)
@@ -78,9 +74,9 @@ router.get('/', isLoggedIn, (req, res) => {
 // GET saved restaurants in profile
 router.get('/', isLoggedIn, (req, res) => {
     db.restaurant.findAll()
-    .then(save => {
+    .then(saved => {
     // display saved restaurants in profile.ejs
-    res.render('profile', {results:save})
+    res.render('profile', {results:saved})
     })
 })
 

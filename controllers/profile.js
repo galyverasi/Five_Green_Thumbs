@@ -17,6 +17,7 @@ router.get('/', isLoggedIn, (req, res) => {
 router.post('/', isLoggedIn, (req, res) => {
     db.review.create({
         name: req.params.name,
+        comment: req.body.comment,
         userId: req.session.userId
     })
     .then(createdReview => {
@@ -82,7 +83,8 @@ router.post('/:name', isLoggedIn, (req, res) => {
         if(!result) {
         db.userRestaurant.create({
             name: req.params.name, 
-            userId: req.session.userId
+            userId: req.session.userId,
+            restaurantId: req.params.restaurantId
         })
         .then(createdSave => {
             console.log('db instance created: \n', createdSave)
@@ -90,14 +92,14 @@ router.post('/:name', isLoggedIn, (req, res) => {
         })
         .catch(error => {
             console.log(error)
-        })
-    } else {
+            })
+        } else {
+            
         console.log('this restaurant was already saved')
-
-    }
+        }
     })
     .catch((err)=>{
-        console.log(err)
+    console.log(error)
     })
 })
 module.exports = router
