@@ -3,13 +3,14 @@
 #### Find your local vegan or vegetarian restaurant
 
 #### MVP Goals
- 1. Users will be able to create a account with basic information
+ 1. Users will be able to create an account with basic information
  2. Users will be able to search local restaurants by zip code
  2. Users will be able to save or delete a restaurant
  3. Be able to leave comments or reviews on a restaurant
 
 #### Stretch Goals
  1. Users will be able to leave a rating on a restaurant
+ 2. Sort results by price range
 
 #### Tech stack
 * NodeJS
@@ -24,7 +25,7 @@
 ![ERD](assets/erd.png)
 <br>
 
-#### Routes
+#### CRUD RESTful Routes
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
@@ -32,12 +33,11 @@
 | GET | `/auth/login` | login page for new user |
 | POST | `/auth/login` | existing user |
 | GET | `/auth/signup` | sign up page |
-| POST | `/auth/login` | creates new user in database |
-| GET | `/auth/logout` | logout page |
-| GET | `/restaurants` | restaurant database |
-| GET | `/restaurants/:id` | information on restaurant |
-| POST | `/comments` | adds comment to user's saved restaurant |
-| DELETE | `/restaurants/:id` | deletes a saved restaurant |
+| POST | `/saved/:name` | save found restaurants |
+| GET | `/profile` | save a restaurant in profile |
+| GET | `/results` | shows a list of restaurants |
+| POST | `/profile/comment/:id` | adds comment to user's saved restaurant |
+| DELETE | `/profile` | deletes a saved restaurant |
 
 #### API
 * Documenu is an API providing access to a database of over US 600,000 restaurants and their menus
