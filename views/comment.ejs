@@ -1,0 +1,19 @@
+<p>comment</p>
+
+<p>
+    <%= id %>
+</p>
+
+<p>
+    <%= result.name %>
+</p>
+<ul class="list-inline rating-list">
+    <li><i class="fa fa-star" title="Rate 5"></i></li>
+    <li><i class="fa fa-star" title="Rate 4"></i></li>
+    <li><i class="fa fa-star" title="Rate 3"></i></li>
+    <li><i class="fa fa-star" title="Rate 2"></i></li>
+    <li><i class="fa fa-star" title="Rate 1"></i></li>
+  </ul>
+<form action="/profile/comment/<%=id%>" method="POST">
+<input type="text" name="comment">
+</form>
