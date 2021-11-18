@@ -30,9 +30,6 @@
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
 | GET | `/` | home page |
-| GET | `/auth/login` | login page for new user |
-| POST | `/auth/login` | existing user |
-| GET | `/auth/signup` | sign up page |
 | POST | `/saved/:name` | save found restaurants |
 | GET | `/profile` | save a restaurant in profile |
 | GET | `/results` | shows a list of restaurants |

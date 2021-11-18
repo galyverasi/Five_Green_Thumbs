@@ -1,0 +1,22 @@
+ .rating-list li {
+    float: right;
+    /* color: #ddd; */
+    padding: 10px 5px;
+  }
+  
+  .rating-list li:hover,
+  .rating-list li:hover ~ li {
+    color: #ffd700;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .body {
+    background-image: url(https://i.postimg.cc/LsXGjJVM/veg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+  }

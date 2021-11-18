@@ -34,6 +34,7 @@ app.use(methodOverride('_method'))
 
 // flash middleware (must go AFTER session middleware)
 app.use(flash())
+app.use(express.static(__dirname +'/public'))
 
 // custom middleware
 app.use((req, res, next) => {

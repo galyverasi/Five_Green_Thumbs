@@ -1,6 +1,7 @@
-<h5>Rate and leave a comment? Save it to your profile</h5>
+<div class="container text-center bg-success bg-opacity-25 text-white" >
+    <h5>Rate and leave a comment? Save it to your profile</h5>
 
-<%results.data.forEach(function(result) {%>
+        <%results.data.forEach(function(result) {%>
         <form action="/profile/<%= result.restaurant_name %>" method="POST" >
         <%=result.restaurant_name%><button type="submit">save restaurant</button>
         </form>
@@ -10,4 +11,5 @@
             <ul> location: <%=result.address.formatted%></ul>       
         <%})%>
 
-<a href="/profile">view my restaurants</a>
+     <a href="/profile">view my restaurants</a>
+</div>
