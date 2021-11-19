@@ -17,19 +17,16 @@
         background-attachment: fixed;">
 
     <header>
-      <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <!-- <div class="navbar-header">
-            <a class="navbar-brand" href="#">Leggo My Veggo</a>
-          </div> -->
-        <ul class="nav justify-content-end">
+        <ul class="container-fluid justify-content-start">
           <% if (!currentUser) { %>
-            <li class="nav-item"> 
-              <a class="nav-link" href="/auth/signup">sign up</a> 
-            </li>
-            <li class="nav-item"> 
-              <a class="nav-link" href="/auth/login">login</a> 
-            </li>
+             
+              <a class="btn btn-sm btn-outline-success" href="/auth/signup">sign up</a> 
+            
+             
+              <a class="btn btn-sm btn-outline-success" href="/auth/login">login</a> 
+            
             <% } else { %>
               <li> 
                 <a class="nav-link" href="/profile">profile</a> 

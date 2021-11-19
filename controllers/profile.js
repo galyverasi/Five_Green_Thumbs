@@ -35,27 +35,19 @@ router.get('/comment/:id', isLoggedIn, (req, res) => {
         where: {id:req.params.id}
     })
     .then(result => {
-        res.render("comment", {id:req.params.id, result:result})
+        db.review.findOne({
+            where: {restaurantId: req.params.id}
+        })
+        .then(review => {
+            console.log(`current review`, review?.dataValues)
+            res.render("comment", {id:req.params.id, result:result, review:review?.dataValues?.comments || ""})
+        })
     })
 })
 
-// POST 
-router.post('/comment/:id', isLoggedIn, (req, res) => {
-    // console.log('this is the id\n', res.params.id)
-    db.reviews.create({ 
-        restaurantId: req.params.id,
-        userId: req.session.userId,
-        comment: req.query.comment
-    })
-    .then(comment => {
-        // destroy returns '1' if something was deleted and '0' if nothing happened
-        console.log('you deleted: ', deletedRestaurant)
-        res.redirect('/profile')
-    })
-    .catch(error => {
-        console.log(error)
-    })
-})
+// POST leave a comment
+// router.post('/comment/:id', isLoggedIn, (req, res) => {
+//     db.userRestaurant.findOne({
 
 // DELETE that will remove a saved restaurant
 router.post('/delete/:name', isLoggedIn, (req, res) => {
@@ -77,14 +69,15 @@ router.post('/:name', isLoggedIn, (req, res) => {
     console.log(`currentUser: ${req.session.userId}`)
     console.log(`savedRestaurant: ${req.params.name}`)
     db.userRestaurant.findOne({
-        where: {name:req.params.name}
+        where: { name: req.params.name }
+
     })
     .then((result)=>{
         if(!result) {
         db.userRestaurant.create({
             name: req.params.name, 
             userId: req.session.userId,
-            restaurantId: req.params.restaurantId
+            restaurantId: req.body.restaurant_id
         })
         .then(createdSave => {
             console.log('db instance created: \n', createdSave)
@@ -102,4 +95,5 @@ router.post('/:name', isLoggedIn, (req, res) => {
     console.log(error)
     })
 })
+
 module.exports = router

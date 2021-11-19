@@ -4,7 +4,7 @@ const router = express.Router()
 const axios = require('axios')
 const isLoggedIn = require('../middleware/isLoggedIn')
 
-// SHOW a list of restaurants
+// GET display a list of restaurants from API
 router.get('/results', isLoggedIn, (req, res) => {
     let useZip, useCuisine
     if(!req.query.zipCode) {            // if there is no query - we linked to /results
