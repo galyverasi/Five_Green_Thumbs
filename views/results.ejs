@@ -1,22 +1,26 @@
-<h5>Rate and leave a comment? Save it to your profile</h5>
+<h5>save and leave a comment</h5>
 
-<div class="container-sm text-center bg-success bg-opacity-75 text-white">
 <%results.data.forEach(function(result) {%>
     <form action="/profile/<%= result.restaurant_name %>" method="POST" >
         <input hidden type="text" name="restaurantId" value="<%= result.restaurant_id %>">
-        <div id="restaurantName">
-        <%=result.restaurant_name%> <i class="fas fa-leaf"></i>
+
+<div class="row">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h6 class="card-title"><%=result.restaurant_name%>
+                    <button id="btn" type="submit"><i class="fas fa-archive"></i></button>
+                </h6>
+                    <h6 class="card-subtitle mb-2 text-muted"><%=result.price_range%></h6>
+                        <li><%=result.restaurant_phone%></li>
+                        <li> hours: <%=result.hours%></li>  
+                        <li> location: <%=result.address.formatted%></li>
+            </div>
         </div>
-        <button type="submit">save restaurant</button>
-
-            <ul> price range: <%=result.price_range%></ul>
-            <ul> phone number: <%=result.restaurant_phone%></ul>
-            <ul> hours: <%=result.hours%></ul>
-            <ul> location: <%=result.address.formatted%></ul>
-
-        </form>
-        
-        <%})%>
     </div>
 
-     <a href="/profile">view my restaurants</a>
+
+   
+    </form>
+    <%})%>
+    
+     <a href="/results">view my restaurants</a>
