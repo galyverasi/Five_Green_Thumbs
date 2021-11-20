@@ -5,7 +5,7 @@
         <%= result.name %>
         </p>
 
-    <form action="/profile/delete/<%= result.name %>" method="POST">
+    <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
     </form>
 

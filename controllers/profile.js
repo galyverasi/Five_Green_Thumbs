@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 const isLoggedIn = require('../middleware/isLoggedIn')
+const methodOverride = require('method-override')
 
 // GET route that will display saved restaurants
 router.get('/', isLoggedIn, (req, res) => {
@@ -29,7 +30,7 @@ router.post('/', isLoggedIn, (req, res) => {
     }) 
 })
 
-// GET render comment page
+// GET route that will render comment page
 router.get('/comment/:id', isLoggedIn, (req, res) => {
     db.userRestaurant.findOne({
         where: {id:req.params.id}
@@ -45,12 +46,55 @@ router.get('/comment/:id', isLoggedIn, (req, res) => {
     })
 })
 
-// POST leave a comment
-// router.post('/comment/:id', isLoggedIn, (req, res) => {
-//     db.userRestaurant.findOne({
+// POST route that will leave a comment
+router.post('/comment/:id', isLoggedIn, (req, res) => {
+    db.userRestaurant.findOne({
+        where: {id:req.params.id}
+    })
+    .then(result => {
+        db.review.findOne({
+            where: { restaurantId: req.params.id}
+        })
+        .then(review => {
+            if(review) {
+                // if a review exists, update it
+                db.review.update( 
+                    { comments: req.body.comment },
+                    { where: {restaurantId: req.params.id} }
+                )
+                .then(() => {
+                    console.log('updated comment')
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            } else {
+                // if there is no review, create one
+                db.review.create({ 
+                    restaurantId: req.params.id,
+                    userId: req.session.userId,
+                    comments: req.body.comment
+                })
+                .then(() => {
+                    console.log('added comment')   
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            } 
+        })
+        .catch(err => {
+            console.log('error when updating comment:', err)
+        })
+        .finally(() => {
+            // console.log(`current review`, currentReview?.dataValues)
+            res.redirect(`/profile/comment/${req.params.id}`)
+        })
+    })
+})       
 
 // DELETE that will remove a saved restaurant
-router.post('/delete/:name', isLoggedIn, (req, res) => {
+router.delete('/:name', isLoggedIn, (req, res) => {
     // console.log('this is the id\n', res.params.id)
     db.userRestaurant.destroy({ 
         where: { name: req.params.name }

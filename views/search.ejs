@@ -1,23 +1,15 @@
-<div class="bg-image" 
-    style="background-image: url('https://i.postimg.cc/LsXGjJVM/veg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-attachment: fixed;">
-  <div class="container-sm text-center bg-success bg-opacity-75 text-white">
-<form action="/search/results" method="GET">
+
+<body>
+  <div id="searchBar">
+  <form action="/search/results" method="GET">
     <label for="zip code">find restaurants by zip code</label>
     <input type="text" name="zipCode" placeholder="10001">
+
     <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="vegan">
     <label class="form-check-label" for="inlineRadio1">vegan</label>
     <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="vegetarian">
     <label class="form-check-label" for="inlineRadio1">vegetarian</label>        
     <input type="submit" class="btn-secondary">
-</form>
+  </form>
 </div>
-<div class="input-group">
-    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
-    <button class="btn btn-secondary" type="button">Button</button>
-    <button class="btn btn-secondary" type="button">Button</button>
-  </div>
-</div>
-</div>
+</body>
