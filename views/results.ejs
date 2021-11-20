@@ -11,10 +11,10 @@
                     <button id="btn" type="submit"><i class="fas fa-archive"></i></button>
                 </h6>
                     <h6 class="card-subtitle mb-2 text-muted"><%=result.price_range%></h6>
-                        <li><%=result.cuisines%></li>
-                        <li><%=result.restaurant_phone%></li>
-                        <li> hours: <%=result.hours%></li>  
-                        <li> location: <%=result.address.formatted%></li>
+                        <h6 id="cuisine"><%=result.cuisines.join(", ")%></h6>
+                        <h6><%=result.restaurant_phone%></h6>
+                        <h6><%=result.hours%></h6>  
+                        <h6><%=result.address.formatted%></h6>
             </div>
         </div>
     </div>

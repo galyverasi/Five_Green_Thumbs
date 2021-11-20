@@ -1,4 +1,5 @@
 body {
+  opacity: 90%;
   width: 100%;
   align-items : center;
   height: 100%;
@@ -15,6 +16,7 @@ h1 {
 h5 {
   text-align: center;
 }
+
 #veg {
   text-align: center;
   padding-top: 20px;
@@ -23,6 +25,7 @@ h5 {
   border: 1em;
   padding-top: 50%;
   align-items: center;
+  
 }
 #searchBox {
   width: 150px;
@@ -31,6 +34,7 @@ h5 {
   border: 1px solid gray;
   border-radius: 20px;
   margin-left: 20px;
+  padding-left: 10px;
 }
 #btn {
   border: 0;
@@ -48,6 +52,15 @@ h5 {
   display: flex;
   justify-content: center;
 }
+#pen {
+  align-items: right;
+}
+#cuisine {
+  font-size: small;
+}
+.logo {
+margin: auto;
+}
 .container {
   padding: 25px;
   border: 1em;
@@ -55,7 +68,7 @@ h5 {
 .card {
   margin-bottom: 10px;
 }
-.row {
+.row, .logo {
   display: flex;
   justify-content: center;
   align-items: center;

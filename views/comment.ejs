@@ -1,19 +1,27 @@
-<div class="container-sm text-center bg-success bg-opacity-75 text-white">
-<h2>Leave a review</h2>
-<p>
-    <%= result.name %>
-</p>
-<ul class="list-inline rating-list">
-    <li><i class="fa fa-star" title="Rate 5"></i></li>
-    <li><i class="fa fa-star" title="Rate 4"></i></li>
-    <li><i class="fa fa-star" title="Rate 3"></i></li>
-    <li><i class="fa fa-star" title="Rate 2"></i></li>
-    <li><i class="fa fa-star" title="Rate 1"></i></li>
-  </ul>
-  <form action="/profile/comment/<%=id%>" method="POST">
-    <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Leave comment" value="<%= review %>" aria-describedby="button-addon2" name="comment">
-    <button class="btn btn-secondary" type="submit" id="button-addon2">submit</button>
-    </div>
+<h5>leave a comment</h5>
+
+
 </form>
+
+<div class="row">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <h6 class="card-title"><%= result.name %>
+                <div>
+                <ul class="list-inline rating-list">
+                    <li><i class="fa fa-star" title="Rate 5"></i></li>
+                    <li><i class="fa fa-star" title="Rate 4"></i></li>
+                    <li><i class="fa fa-star" title="Rate 3"></i></li>
+                    <li><i class="fa fa-star" title="Rate 2"></i></li>
+                    <li><i class="fa fa-star" title="Rate 1"></i></li>
+                </ul></div>
+                <form action="/profile/comment/<%=id%>" method="POST">
+                  <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Leave comment" value="<%= review %>" aria-describedby="button-addon2" name="comment">
+                  <button class="btn btn-secondary" type="submit" id="button-addon2">submit</button>
+                  </div>
+                  </form>
+
+</div>
+</div>
 </div>
