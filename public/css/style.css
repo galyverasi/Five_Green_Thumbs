@@ -12,6 +12,9 @@ h1 {
   text-align: center;
   padding: 50px 0 50px 0;
 }
+h5 {
+  text-align: center;
+}
 #veg {
   text-align: center;
   padding-top: 20px;
@@ -43,25 +46,30 @@ h1 {
   background-color: white;
   border-radius: 1em;
   display: flex;
-	justify-content: center;
+  justify-content: center;
 }
- .rating-list li {
-    float: right;
-    /* color: #ddd; */
-    padding: 10px 5px;
-  }
-  
-  .rating-list li:hover,
-  .rating-list li:hover ~ li {
-    color: #ffd700;
-  }
-  
-  .rating-list {
-    display: inline-block;
-    list-style: none;
-  }
-
-  .container {
-    padding: 25px;
-    border: 1em;
-  }
+.container {
+  padding: 25px;
+  border: 1em;
+}
+.card {
+  margin-bottom: 10px;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rating-list li {
+  float: right;
+  /* color: #ddd; */
+  padding: 10px 5px;
+}
+.rating-list li:hover,
+.rating-list li:hover ~ li {
+  color: #ffd700;
+}
+.rating-list {
+  display: inline-block;
+  list-style: none;
+}

@@ -1,18 +1,25 @@
-<div class="container-sm text-center bg-success bg-opacity-75 text-white">
-<h2>Saved Restaurants</h2>
+<h1><%= currentUser %>'s Restaurants</h1>
+
     <% results.forEach(result => { %>
-        <p>
-        <%= result.name %>
-        </p>
 
-    <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
-        <input type="submit" value="Delete">
-    </form>
 
-    <form action="/profile/comment/<%= result.id %>" method="GET">
-        <button type="submit">leave a rating</button>
-    </form>
+        <div class="row">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    
+                    <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
+                    <h5 class="card-title"><%= result.name %>
+                        <button id="btn" type="submit"><i class="fas fa-trash"></i></button>
+                        </h5>
+                    </form>              
+                    <form action="/profile/comment/<%= result.id %>" method="GET">
+                        <h5>
+                    <button id="btn" type="submit"><i class="fas fa-pen"></i></button></h5>
+                    </form>
+                
+                </div>
+            </div>
+        </div>
 <%})%>
 
-<a href="/search/results">back to saved restaurants</a>
-</div>
+<a href="/search/results">back to results</a>
