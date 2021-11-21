@@ -71,7 +71,7 @@ router.get('/', isLoggedIn, (req, res) => {
     res.render('search')
 })
 
-// GET saved restaurants in profile
+// GET save a restaurant in profile
 router.get('/', isLoggedIn, (req, res) => {
     db.restaurant.findAll()
     .then(saved => {

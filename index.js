@@ -48,7 +48,6 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile.js'))
-app.use('/saved', require('./controllers/saved.js'))
 app.use('/search', require('./controllers/search.js'))
 
 // home route

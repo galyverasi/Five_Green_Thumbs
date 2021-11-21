@@ -14,10 +14,11 @@ ___
 
 #### Technologies Used
 ___
-* NodeJS
+* HTML5
+* CSS3
+* NodeJS`
 * PostgreSQL
 * Sequelize
-* Bootstrap
 
 #### User Stories
 ___
@@ -28,25 +29,29 @@ Search for plant-based dining at its finest. No matter where you live or visit, 
     * be able to delete a restaurant from my profile
     * be able to leave a comment or rating
 
+#### Routes and Models
+___
 
-
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------------------- |
+| GET | `/search/results` | display a list of restaurants |
+| GET | `/search` | save a restaurant in profile |
+| GET | `/profile` | display saved restaurants |
+| POST | `/profile/comment/:id` | add a comment |
+| DELETE | `/:name` | delete a restaurant |
+| GET | `/comment/:id` | render comment page |
+| PUT | `/comment/:id` | edit a comment |
 
 #### ERD<br>
 ___
 ![ERD](public/images/erd.png)
 <br>
 
-#### Routes and Models
-___
-
-| Method | Path | Purpose |
-| ------ | -------------- | -------------------------------- |
-| GET | `/` | home page |
-| POST | `/saved/:name` | save found restaurants |
-| GET | `/profile` | save a restaurant in profile |
-| GET | `/results` | shows a list of restaurants |
-| POST | `/profile/comment/:id` | adds comment to user's saved restaurant |
-| DELETE | `/profile` | deletes a saved restaurant |
+| Model | Schema | Associations |
+| ------| -------| ----------------------------------------- |
+| User| name, email, password | belongs to many restaurants and reviews|
+| Restaurant | name, priceRange, phoneNumber, hours, address | belongs to many users and has many reviews|
+| Review | rating, comments | belongs to users and restaurants |
 
 #### API
 ____

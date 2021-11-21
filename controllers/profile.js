@@ -46,8 +46,8 @@ router.get('/comment/:id', isLoggedIn, (req, res) => {
     })
 })
 
-// POST route that will leave a comment
-router.post('/comment/:id', isLoggedIn, (req, res) => {
+// PUT route that edit a comment
+router.put('/comment/:id', isLoggedIn, (req, res) => {
     db.userRestaurant.findOne({
         where: {id:req.params.id}
     })
@@ -88,7 +88,7 @@ router.post('/comment/:id', isLoggedIn, (req, res) => {
         })
         .finally(() => {
             // console.log(`current review`, currentReview?.dataValues)
-            res.redirect(`/profile/comment/${req.params.id}`)
+            res.redirect('/profile')
         })
     })
 })       
