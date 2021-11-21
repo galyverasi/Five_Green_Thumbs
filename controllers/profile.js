@@ -110,11 +110,10 @@ router.delete('/:name', isLoggedIn, (req, res) => {
 
 // POST route that will save a restaurant to userRestaurant
 router.post('/:name', isLoggedIn, (req, res) => {
-    console.log(`currentUser: ${req.session.userId}`)
-    console.log(`savedRestaurant: ${req.params.name}`)
+    // console.log(`currentUser: ${req.session.userId}`)
+    // console.log(`savedRestaurant: ${req.params.name}`)
     db.userRestaurant.findOne({
         where: { name: req.params.name }
-
     })
     .then((result)=>{
         if(!result) {
@@ -124,7 +123,7 @@ router.post('/:name', isLoggedIn, (req, res) => {
             restaurantId: req.body.restaurant_id
         })
         .then(createdSave => {
-            console.log('db instance created: \n', createdSave)
+            // console.log('db instance created: \n', createdSave)
             res.redirect(`/profile`)
         })
         .catch(error => {

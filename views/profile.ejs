@@ -1,24 +1,31 @@
 <h1><%= currentUser %>'s Restaurants</h1>
-
+<div id="results">
+<a href="/search/results"><i id="btn2" class="fas fa-step-backward"></i></a>
+<p>back to results</p>
+</div>
     <% results.forEach(result => { %>
-
-
         <div class="row">
             <div class="card" style="width: 25rem;">
                 <div class="card-body">
                     
                     <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
-                    <h5 class="card-title"><%= result.name %>
+                    <h6><%= result.name %>
                         <button id="btn" type="submit"><i class="fas fa-trash"></i></button>
-                        </h5>
-                    </form>              
+                        </h6>
+                    </form>    
+       
                     <form action="/profile/comment/<%= result.id %>" method="GET">
-                    <button id="btn" type="submit"><i id="pen" class="fas fa-pen"></i></button>
+                        <div class="side">
+                        <h6>leave a comment?</h6>
+                        </div>
+                        <div class="side">
+                        <button id="btn" type="submit"><i class="fas fa-pen"></i></button>
+                        </div>
                     </form>
+
                 
                 </div>
             </div>
         </div>
 <%})%>
 
-<a href="/search/results">back to results</a>

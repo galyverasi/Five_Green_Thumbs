@@ -1,31 +1,43 @@
-## Leggo my Veggo
+## Plant Grub
+___
+![homepage](public/images/home.png)
+#### Requirements
+___
 
-#### Find your local vegan or vegetarian restaurant
+* Have at least 2 models.
+* Incorporate at least one API.
+* Have complete RESTful routes for at least one of your resources with `GET`, `POST`, `PUT`, and `DELETE`.
+* Utilize an ORM to create a database table structure and interact with your relationally-stored data.
+* Include a readme file that explains how to use your app.
+* Have semantically clean HTML, CSS, and back-end code.
+* Be deployed online and accessible to the public.
 
-#### MVP Goals
- 1. Users will be able to create an account with basic information
- 2. Users will be able to search local restaurants by zip code
- 2. Users will be able to save or delete a restaurant
- 3. Be able to leave comments or reviews on a restaurant
-
-#### Stretch Goals
- 1. Users will be able to leave a rating on a restaurant
- 2. Sort results by price range
-
-#### Tech stack
+#### Technologies Used
+___
 * NodeJS
-* Express
 * PostgreSQL
+* Sequelize
 * Bootstrap
 
-#### Wireframes
-![wireframe](assets/wireframe.png)
+#### User Stories
+___
+Search for plant-based dining at its finest. No matter where you live or visit, you'll find places well worth checking out with this app.
+* As a user, I want to...
+    * be able to search local vegetarian or vegan restaurants
+    * be able to save a restaurant to my profile
+    * be able to delete a restaurant from my profile
+    * be able to leave a comment or rating
+
+
+
 
 #### ERD<br>
+___
 ![ERD](assets/erd.png)
 <br>
 
-#### CRUD RESTful Routes
+#### Routes and Models
+___
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
@@ -37,8 +49,10 @@
 | DELETE | `/profile` | deletes a saved restaurant |
 
 #### API
-* Documenu is an API providing access to a database of over US 600,000 restaurants and their menus
+____
+Documenu is an API providing access to a database of over US 600,000 restaurants and their menus
 
+API call
 ```
 https://api.documenu.com/v2/restaurants/search/fields?cuisine=vegan, vegetarian&zip_code=80246
 ```
@@ -61,4 +75,3 @@ JSON response looks like this:
 "last_updated":"2021-01-05T07:20:54.515Z"
 }
 ```
-#### Potential Roadblocks

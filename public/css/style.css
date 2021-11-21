@@ -42,6 +42,11 @@ h5 {
   background: transparent ;
   padding: 0px;
 }
+#btn2 {
+  color: black;
+  size: 5in;
+  
+}
 #searchBar {
   width: 50%;
   height: 50%;
@@ -52,14 +57,20 @@ h5 {
   display: flex;
   justify-content: center;
 }
-#pen {
-  align-items: right;
-}
 #cuisine {
   font-size: small;
 }
+#comment {
+  display: inline-block;
+}
+#results {
+  margin-left: 80px;
+  margin-top: -50px;
+  font-size: 20px;
+}
 .logo {
-margin: auto;
+  margin: auto;
+  margin-top: 80px;
 }
 .container {
   padding: 25px;
@@ -72,6 +83,10 @@ margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.side {
+  display: inline-block;
+
 }
 .rating-list li {
   float: right;
