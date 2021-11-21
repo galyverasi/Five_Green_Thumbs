@@ -33,7 +33,7 @@ Search for plant-based dining at its finest. No matter where you live or visit, 
 
 #### ERD<br>
 ___
-![ERD](assets/erd.png)
+![ERD](public/images/erd.png)
 <br>
 
 #### Routes and Models
