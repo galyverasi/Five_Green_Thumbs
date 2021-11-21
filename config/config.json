@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "plantgrub_development",
+    "database": "leggo_my_veggo_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "plantgrub_test",
+    "database": "leggo_my_veggo_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "plantgrub_production",
+    "database": "leggo_my_veggo_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
