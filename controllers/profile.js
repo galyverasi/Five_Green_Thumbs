@@ -46,7 +46,7 @@ router.get('/comment/:id', isLoggedIn, (req, res) => {
     })
 })
 
-// PUT route that edit a comment
+// PUT route that update a comment
 router.put('/comment/:id', isLoggedIn, (req, res) => {
     db.userRestaurant.findOne({
         where: {id:req.params.id}
