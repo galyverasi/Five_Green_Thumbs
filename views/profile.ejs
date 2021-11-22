@@ -1,4 +1,4 @@
-<h1><%= currentUser %>'s Restaurants</h1>
+<h5><%= currentUser %>'s Restaurants</h5>
 <div id="results">
 <a href="/search/results"><i id="btn2" class="fas fa-step-backward"></i></a>
 <p>back to results</p>
@@ -7,23 +7,19 @@
         <div class="row">
             <div class="card" style="width: 25rem;">
                 <div class="card-body">
-                    
                     <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
-                    <h6><%= result.name %>
-                        <button id="btn" type="submit"><i class="fas fa-trash"></i></button>
+                        <h6><%= result.name %>
+                            <button id="btn" type="submit"><i class="fas fa-trash"></i></button>
                         </h6>
                     </form>    
-       
-                    <form action="/profile/comment/<%= result.id %>" method="GET">
-                        <div class="side">
-                        <h6>leave a comment?</h6>
-                        </div>
+                        <form action="/profile/comment/<%= result.id %>" method="GET">
+                            <div class="side">
+                            <h6>leave a comment?</h6>
+                            </div>
                         <div class="side">
                         <button id="btn" type="submit"><i class="fas fa-pen"></i></button>
                         </div>
-                    </form>
-
-                
+                        </form>
                 </div>
             </div>
         </div>

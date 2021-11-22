@@ -129,8 +129,7 @@ router.post('/:name', isLoggedIn, (req, res) => {
         .catch(error => {
             console.log(error)
             })
-        } else {
-            
+        } else {   
         console.log('this restaurant was already saved')
         }
     })

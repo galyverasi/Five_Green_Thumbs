@@ -1,3 +1,6 @@
+<% if (!results) {%>
+    <h1>no restaurants found</h1>
+<% } %>
 <h5>save and leave a comment</h5>
 
 <%results.data.forEach(function(result) {%>
@@ -5,21 +8,18 @@
         <input hidden type="text" name="restaurantId" value="<%= result.restaurant_id %>">
 
 <div class="row">
-        <div class="card" style="width: 25rem;">
-            <div class="card-body">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
                 <h6 class="card-title"><%=result.restaurant_name%>
-                    <button id="btn" type="submit"><i class="fas fa-archive"></i></button>
+                <button id="btn" type="submit"><i class="fas fa-archive"></i></button>
                 </h6>
-                    <h6 class="card-subtitle mb-2 text-muted"><%=result.price_range%></h6>
-                        <h6 id="cuisine"><%=result.cuisines.join(", ")%></h6>
-                        <h6><%=result.restaurant_phone%></h6>
-                        <h6><%=result.hours%></h6>  
-                        <h6><%=result.address.formatted%></h6>
-            </div>
+                <h6 class="card-subtitle mb-2 text-muted"><%=result.price_range%></h6>
+                <h6 id="cuisine"><%=result.cuisines.join(", ")%></h6>
+                <h6><%=result.restaurant_phone%></h6>
+                <h6><%=result.hours%></h6>  
+                <h6><%=result.address.formatted%></h6>
         </div>
     </div>
-
-
-   
-    </form>
-    <%})%>
+</div>
+</form>
+<%})%>

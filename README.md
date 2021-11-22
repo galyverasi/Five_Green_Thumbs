@@ -1,5 +1,4 @@
 ## Plant Grub
-___
 ![homepage](public/images/home.png)
 #### Requirements
 ___
@@ -16,7 +15,7 @@ ___
 ___
 * HTML5
 * CSS3
-* NodeJS`
+* NodeJS
 * PostgreSQL
 * Sequelize
 

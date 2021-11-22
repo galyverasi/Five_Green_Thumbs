@@ -31,7 +31,7 @@ router.get('/results', isLoggedIn, (req, res) => {
     }
     req.session.save()
     console.log(`SEARCHING: zip:${useZip} - cuisine:${useCuisine}`)
-    console.log(req.query)
+    // console.log(req.query)
     let searchRoute
     // option to choose between vegan, vegetarian or neither
     switch(useCuisine) {
