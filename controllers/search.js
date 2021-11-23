@@ -5,7 +5,7 @@ const axios = require('axios')
 const isLoggedIn = require('../middleware/isLoggedIn')
 
 // GET display a list of restaurants from API
-router.get('/results', isLoggedIn, (req, res) => {
+router.get('/results', (req, res) => {
     let useZip, useCuisine
     if(!req.query.zipCode) {            // if there is no query - we linked to /results
         console.log('no query for zipcode, using session')
@@ -72,7 +72,7 @@ router.get('/', (req, res) => {
 })
 
 // GET save a restaurant in profile
-router.get('/', isLoggedIn, (req, res) => {
+router.get('/', (req, res) => {
     db.restaurant.findAll()
     .then(saved => {
     // display saved restaurants in profile.ejs
