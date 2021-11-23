@@ -1,12 +1,19 @@
-<% if (!results) {%>
-    <h1>no restaurants found</h1>
-<% } %>
+<% if (results.totalResults === 0) {%>
+    <div class="row">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                    <h3 class="card-title">sorry, no restaurants found!</h3>
+                    <h6>please try a different <a href="/search">zip code</a></h6>
+            </div>
+        </div>
+     </div>    
+<%} else {%>
 <h5>save and leave a comment</h5>
 
 <%results.data.forEach(function(result) {%>
     <form action="/profile/<%= result.restaurant_name %>" method="POST" >
         <input hidden type="text" name="restaurantId" value="<%= result.restaurant_id %>">
-
+    </form>
 <div class="row">
     <div class="card" style="width: 25rem;">
         <div class="card-body">
@@ -21,5 +28,5 @@
         </div>
     </div>
 </div>
-</form>
-<%})%>
+    <%})%>  
+<%}%>

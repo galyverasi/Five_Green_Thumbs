@@ -60,6 +60,7 @@ router.get('/results', isLoggedIn, (req, res) => {
             }
         })
     })
+    console.log('results', results)
     res.render('results', {results:results, name:name})
     })
     .catch(error => {
