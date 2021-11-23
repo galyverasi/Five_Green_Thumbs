@@ -56,7 +56,7 @@ app.get('/', (req, res)=>{
 })
 
 // profile route
-app.get('/profile', isLoggedIn, (req, res)=>{
+app.get('/profile', (req, res)=>{
     res.render('profile')
 })
 
