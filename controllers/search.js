@@ -67,7 +67,7 @@ router.get('/results', isLoggedIn, (req, res) => {
     })
 })
 
-router.get('/', isLoggedIn, (req, res) => {
+router.get('/', (req, res) => {
     res.render('search')
 })
 
