@@ -15,7 +15,7 @@ ___
 ___
 * HTML5
 * CSS3
-* NodeJS
+* Node
 * PostgreSQL
 * Sequelize
 
