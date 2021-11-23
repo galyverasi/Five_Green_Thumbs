@@ -5,7 +5,7 @@ const isLoggedIn = require('../middleware/isLoggedIn')
 const methodOverride = require('method-override')
 
 // GET route that will display saved restaurants
-router.get('/', isLoggedIn, (req, res) => {
+router.get('/', (req, res) => {
     db.userRestaurant.findAll({
         where: {userId:req.session.userId}
     })
