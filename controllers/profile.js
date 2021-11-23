@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 })
 
 // POST route that will add a comment to userRestaurant
-router.post('/', isLoggedIn, (req, res) => {
+router.post('/', (req, res) => {
     db.review.create({
         name: req.params.name,
         comment: req.body.comment,
@@ -31,7 +31,7 @@ router.post('/', isLoggedIn, (req, res) => {
 })
 
 // GET route that will render comment page
-router.get('/comment/:id', isLoggedIn, (req, res) => {
+router.get('/comment/:id', (req, res) => {
     db.userRestaurant.findOne({
         where: {id:req.params.id}
     })
@@ -47,7 +47,7 @@ router.get('/comment/:id', isLoggedIn, (req, res) => {
 })
 
 // PUT route that update a comment
-router.put('/comment/:id', isLoggedIn, (req, res) => {
+router.put('/comment/:id', (req, res) => {
     db.userRestaurant.findOne({
         where: {id:req.params.id}
     })
@@ -94,7 +94,7 @@ router.put('/comment/:id', isLoggedIn, (req, res) => {
 })       
 
 // DELETE that will remove a saved restaurant
-router.delete('/:name', isLoggedIn, (req, res) => {
+router.delete('/:name', (req, res) => {
     // console.log('this is the id\n', res.params.id)
     db.userRestaurant.destroy({ 
         where: { name: req.params.name }
@@ -109,7 +109,7 @@ router.delete('/:name', isLoggedIn, (req, res) => {
 })
 
 // POST route that will save a restaurant to userRestaurant
-router.post('/:name', isLoggedIn, (req, res) => {
+router.post('/:name', (req, res) => {
     // console.log(`currentUser: ${req.session.userId}`)
     // console.log(`savedRestaurant: ${req.params.name}`)
     db.userRestaurant.findOne({
