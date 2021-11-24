@@ -5,13 +5,14 @@
         <div class="card-body">
             <h6 class="card-title"><%= result.name %></h6>
                 <div>
-                    <ul class="list-inline rating-list">
-                        <li><i class="fa fa-star" title="Rate 5"></i></li>
-                        <li><i class="fa fa-star" title="Rate 4"></i></li>
-                        <li><i class="fa fa-star" title="Rate 3"></i></li>
-                        <li><i class="fa fa-star" title="Rate 2"></i></li>
-                        <li><i class="fa fa-star" title="Rate 1"></i></li>
-                    </ul>
+                    <%# star rating is a stretch goal %>
+                    <!-- <ul class="list-inline rating-list">
+                        <li><i class="bi bi-star-fill" title="Rate 5"></i></li>
+                        <li><i class="bi bi-star-fill" title="Rate 3"></i></li>
+                        <li><i class="bi bi-star-fill" title="Rate 4"></i></li>
+                        <li><i class="bi bi-star-fill" title="Rate 2"></i></li>
+                        <li><i class="bi bi-star-fill" title="Rate 1"></i></li>
+                    </ul> -->
                         <h6><%= review %></h6>
                 </div>
                         <form action="/profile/comment/<%=id%>?_method=PUT" method="POST">
