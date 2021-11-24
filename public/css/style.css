@@ -72,6 +72,9 @@ h5 {
   display: flex;    
   justify-content: center;
 }
+.btn {
+  padding: 0;
+}
 .logo {
   margin: auto;
   margin-top: 100px;
@@ -83,6 +86,9 @@ h5 {
 }
 .card {
   margin-bottom: 10px;
+}
+.navbar {
+  padding-left: -10px;
 }
 .row, .logo {
   display: flex;
