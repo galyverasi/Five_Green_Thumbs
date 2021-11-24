@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
                         <h6><%= result.name %>
-                            <button id="btn" type="submit"><i class="fas fa-trash"></i></button>
+                            <button id="btn" type="submit"><i class="bi bi-trash"></i></button>
                         </h6>
                     </form>    
                         <form action="/profile/comment/<%= result.id %>" method="GET">
@@ -17,7 +17,7 @@
                             <h6>leave a comment?</h6>
                             </div>
                         <div class="side">
-                        <button id="btn" type="submit"><i class="fas fa-pen"></i></button>
+                        <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
                         </div>
                         </form>
                 </div>
