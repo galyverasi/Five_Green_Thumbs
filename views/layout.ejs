@@ -14,12 +14,12 @@
         <div class="container-fluid">
           <ul class="container-fluid">
           <% if (!currentUser) { %>
-              <a class="btn btn-sucess" href="/auth/signup">sign up</a> 
-              <a class="btn btn-sucess" href="/auth/login">login</a> 
+              <a class="btn btn-sucess" href="/auth/signup"><i class="bi bi-person-plus"></i> sign up</a> 
+              <a class="btn btn-sucess" href="/auth/login"><i class="bi bi-box-arrow-in-right"></i> login</a> 
             <% } else { %>
-                <a class="btn btn-sucess" href="/profile">profile</a> 
-                <a class="btn btn-sucess" href="/search">search</a> 
-                <a class="btn btn-sucess" href="/auth/logout">logout</a> 
+                <a class="btn btn-sucess" href="/profile"><i class="bi bi-person"></i> profile</a> 
+                <a class="btn btn-sucess" href="/search"><i class="bi bi-search"></i> search</a> 
+                <a class="btn btn-sucess" href="/auth/logout"><i class="bi bi-box-arrow-in-left"></i> logout</a> 
             <% } %>
           </ul>
         </div>

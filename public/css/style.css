@@ -33,7 +33,7 @@ h5 {
   background: white;
   border: 1px solid gray;
   border-radius: 20px;
-  margin-left: 20px;
+  margin-right: 5px;
   padding-left: 10px;
 }
 #btn {
@@ -68,9 +68,14 @@ h5 {
   margin-top: -50px;
   font-size: 20px;
 }
+#logo {
+  display: flex;    
+  justify-content: center;
+}
 .logo {
   margin: auto;
   margin-top: 100px;
+  
 }
 .container {
   padding: 25px;
