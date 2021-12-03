@@ -47,17 +47,19 @@ router.get('/login', (req, res)=>{
     if (req.user) {
         res.render('/search')
     } else {
-        res.render('auth/login')
+        res.render('auth/login', {error: req.session.error})
     }
 })
 
 router.post('/login', (req, res, next)=>{
     passport.authenticate('local', (err, user, info) => {
+        req.session.error = null
         if(err) {
             return next(err)
         }
         if (!user) {
-            return res.redirect('/login')
+            req.session.error = 'Invalid username or password!'
+            return res.redirect('/auth/login')
         }
         req.logIn(user, (err) => {
             if(err) {
@@ -70,12 +72,7 @@ router.post('/login', (req, res, next)=>{
     }) (req, res, next)
     }
 )
-// {
-//     failureRedirect: '/auth/login',
-//     successRedirect: '/search', // !-> FLASH <-!
-//     failureFlash: 'Invalid username and/or password.',
-//     successFlash: 'You are now logged in.'
-//     }
+
 router.get('/logout', (req, res)=>{
     req.logout() // !-> FLASH <-!
     req.flash('Success! You\'re logged out.')

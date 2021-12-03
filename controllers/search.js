@@ -45,7 +45,7 @@ router.get('/results', isLoggedIn, (req, res) => {
     .then(apiRes => {
         const name = apiRes.data.restaurant_name
         const results = apiRes.data
-        //console.log("this is apiRes.data", results)
+        // console.log("this is apiRes.data", results)
         results.data.forEach((data) => {
         console.log("this is the next", data)
             db.restaurant.findOrCreate({
