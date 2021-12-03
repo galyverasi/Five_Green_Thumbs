@@ -61,7 +61,28 @@ router.get('/results', isLoggedIn, (req, res) => {
         })
     })
     console.log('results', results)
-    res.render('results', {results:results, name:name})
+    let newResults = []
+    //console.log(results.data)
+        db.userRestaurant.findAll()
+        .then(saved => {
+            
+        // display saved restaurants in profile.ejs
+        results.data.forEach(r => {
+            let already_saved = false;
+            saved.forEach(s => {
+                if(r.restaurant_name == s.dataValues.name){
+                    already_saved = true;
+                }  
+            })
+            let tempResult = {
+                ...r,
+                already_saved
+            }
+            newResults.push(tempResult)
+        })
+        res.render('results', {results:newResults, name:name})
+
+        })
     })
     .catch(error => {
         console.log(error)

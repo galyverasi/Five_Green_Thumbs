@@ -49,7 +49,6 @@ router.get('/login', (req, res)=>{
     } else {
         res.render('auth/login')
     }
-    
 })
 
 router.post('/login', (req, res, next)=>{
