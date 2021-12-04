@@ -1,37 +1,40 @@
-<% if (results.totalResults === 0) {%>
+<% if (results.totalResults===0) {%>
     <div class="row">
         <div class="card" style="width: 25rem;">
             <div class="card-body">
-                    <h3 class="card-title">sorry, no restaurants found!</h3>
-                    <h6>please try a different <a href="/search">zip code</a></h6>
+                <h3 class="card-title">sorry, no restaurants found!</h3>
+                <h6>please try a different <a href="/search">zip code</a></h6>
             </div>
         </div>
-     </div>    
-<%} else {%>
-    
-<h5>save and leave a comment</h5>
+    </div>
+    <%} else {%>
 
-<%results.forEach(function(result) {%>
-    <input hidden type="text" name="restaurantId" value="<%= result.restaurant_id %>">
-    <div class="row">
-        <div class="card" style="width: 25rem;">
-            <div class="card-body">
-                <div style='display: flex; width: 100%; align-items: center; justify-content: space-between;'>
-                    <h6 class="card-title">
-                        <%=result.restaurant_name%>
-                    </h6>
-                        <% if(result.already_saved){ %>
-                            <!--already saved-->
-                            <i class="bi bi-save-fill"></i>
-                        <% }else{ %>
-                            <!--not saved-->
-                            <form action="/profile/<%= result.restaurant_name %>" method="POST" >
-                                <button id="btn" type="submit"><i class="bi bi-save"></i></button>
-                            </form>       
-                        <% } %>
-                </div>
-                <h6 class="card-subtitle mb-2 text-muted"><%=result.price_range%></h6>
-                <h6 id="cuisine"><%=result.cuisines.join(", ")%></h6>
+        <h5>save and leave a comment</h5>
+
+        <%results.forEach(function(result) {%>
+            <input hidden type="text" name="restaurantId" value="<%= result.restaurant_id %>">
+            <div class="row">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        <div style='display: flex; width: 100%; align-items: center; justify-content: space-between;'>
+                            <h6 class="card-title">
+                                <%=result.restaurant_name%>
+                            </h6>
+                            <% if(result.already_saved){ %>
+                                <!--already saved-->
+                                <i class="bi bi-save-fill"></i>
+                                <% }else{ %>
+                                    <!--not saved-->
+                                    <form action="/profile/<%= result.restaurant_name %>" method="POST">
+                                        <button id="btn" type="submit"><i class="bi bi-save"></i></button>
+                                    </form>
+                                    <% } %>
+                        </div>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%=result.price_range%>
+                        </h6>
+                        <h6 id="cuisine">
+                            <%=result.cuisines.join(", ")%></h6>
                 <h6><%=result.restaurant_phone%></h6>
                 <h6><%=result.hours%></h6>  
                 <h6><%=result.address.formatted%></h6>

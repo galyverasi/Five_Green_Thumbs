@@ -1,4 +1,6 @@
-## Plant Grub
+# Plant Grub
+[plantgrub.herokuapp.com](https://plantgrub.herokuapp.com/)
+___
 ![homepage](public/images/home.png)
 #### Requirements
 ___
@@ -41,7 +43,7 @@ ___
 | GET | `/comment/:id` | render comment page |
 | PUT | `/comment/:id` | edit a comment |
 
-#### ERD<br>
+#### Entity Relationship Diagram<br>
 ___
 ![ERD](public/images/erd.png)
 <br>
@@ -79,3 +81,14 @@ JSON response looks like this:
 "last_updated":"2021-01-05T07:20:54.515Z"
 }
 ```
+#### Local Setup
+If you'd like to run this application on your own local server:
+
+1. Fork and clone this repository
+2. Run `npm install` to install dependencies
+3. Create a `.env` file and in that file
+    * Set `SUPER_SECRET_SECRET` to a string
+    * Obtain an API key from [Documenu](https://documenu.com/)
+4. Run `sequelize db:migrate` to run migrations
+5. Run `nodemon` to start this application
+6. Go to localhost:3000 on your browser and create an account

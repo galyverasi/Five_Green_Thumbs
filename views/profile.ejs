@@ -1,30 +1,33 @@
-<% if (results.length === 0) { %>
+<% if (results.length===0) { %>
     <h5>please add a restaurant</h5>
     <% } else { %>
-<h5><%= currentUser %>'s Restaurants</h5>
-<div id="results">
-<a href="/search/results"><i id="btn2" class="bi bi-skip-backward"></i></a>
-<p>back to results</p>
-</div>
-    <% results.forEach(result => { %>
-        <div class="row">
-            <div class="card" style="width: 25rem;">
-                <div class="card-body">
-                    <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
-                        <h6><%= result.name %>
-                            <button id="btn" type="submit"><i class="bi bi-trash"></i></button>
-                        </h6>
-                    </form>    
+        <h5>
+            <%= currentUser %>'s Restaurants
+        </h5>
+        <div id="results">
+            <a href="/search/results"><i id="btn2" class="bi bi-skip-backward"></i></a>
+            <p>back to results</p>
+        </div>
+        <% results.forEach(result=> { %>
+            <div class="row">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
+                            <h6>
+                                <%= result.name %>
+                                    <button id="btn" type="submit"><i class="bi bi-trash"></i></button>
+                            </h6>
+                        </form>
                         <form action="/profile/comment/<%= result.id %>" method="GET">
                             <div class="side">
-                            <h6>leave a comment?</h6>
+                                <h6>leave a comment?</h6>
                             </div>
-                        <div class="side">
-                        <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
-                        </div>
+                            <div class="side">
+                                <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
+                            </div>
                         </form>
+                    </div>
                 </div>
             </div>
-        </div>
-<%})%>
-<%}%>
+            <%})%>
+                <%}%>
