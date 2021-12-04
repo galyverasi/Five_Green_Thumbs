@@ -16,14 +16,12 @@ app.use(ejsLayouts)
 // body parser middleware
 app.use(express.urlencoded({extended:false}))
 
-
 // session middleware
 app.use(session({
     secret: process.env.SUPER_SECRET_SECRET,
     resave: true,
     saveUninitialized: true
 }))
-
 
 // passport middleware
 app.use(passport.initialize())
@@ -49,15 +47,11 @@ app.use((req, res, next) => {
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile.js'))
 app.use('/search', require('./controllers/search.js'))
+app.use('/comment', require('./controllers/review.js'))
 
 // home route
 app.get('/', (req, res)=>{
     res.render('home')
-})
-
-// profile route
-app.get('/profile', isLoggedIn, (req, res)=>{
-    res.render('profile')
 })
 
 app.listen(process.env.PORT || 3000, ()=>{
