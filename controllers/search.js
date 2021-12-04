@@ -45,27 +45,13 @@ router.get('/results', isLoggedIn, (req, res) => {
         .then(apiRes => {
             const name = apiRes.data.restaurant_name
             const results = apiRes.data
-            console.log("this is apiRes.data", results)
-            results.data.forEach((data) => {
-                console.log("this is the next", data)
-                db.restaurant.findOrCreate({
-                    where: { name: data.restaurant_name },
-                    defaults: {
-                        name: data.restaurant_name,
-                        priceRange: data.price_range,
-                        phoneNumber: data.restaurant_phone,
-                        hours: data.hours,
-                        address: data.address.formatted,
-                        userId: req.session.userId,
-                    }
-                })
-            })
             console.log('results', results)
             let newResults = []
             //console.log(results.data)
-            db.userRestaurant.findAll()
+            db.userRestaurant.findAll({
+                where: { userId: req.session.userId }
+            })
                 .then(saved => {
-
                     // display saved restaurants in profile.ejs
                     results.data.forEach(r => {
                         let already_saved = false;
