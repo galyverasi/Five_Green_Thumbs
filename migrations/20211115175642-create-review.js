@@ -11,7 +11,7 @@ module.exports = {
       rating: {
         type: Sequelize.TEXT
       },
-      comments: {
+      review: {
         type: Sequelize.TEXT
       },
       userId: {
