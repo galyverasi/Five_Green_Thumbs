@@ -12,20 +12,17 @@
             <div class="row">
                 <div class="card" style="width: 25rem;">
                     <div class="card-body">
+                        <h6>
+                            <%= result.name %>
+                        </h6>
                         <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
-                            <h6>
-                                <%= result.name %>
-                                    <button id="btn" type="submit"><i class="bi bi-trash"></i></button>
-                            </h6>
+                            <button id="btn" type="submit"><i class="bi bi-trash"></i></button>
                         </form>
+                        <h6>leave a review?</h6>
                         <form action="/review/<%= result.id %>" method="GET">
-                            <div class="side">
-                                <h6>leave a comment?</h6>
-                            </div>
-                            <div class="side">
-                                <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
-                            </div>
+                            <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
                         </form>
+
                     </div>
                 </div>
             </div>

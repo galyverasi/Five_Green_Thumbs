@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile.js'))
 app.use('/search', require('./controllers/search.js'))
-app.use('/comment', require('./controllers/review.js'))
+app.use('/review', require('./controllers/review.js'))
 
 // home route
 app.get('/', (req, res)=>{

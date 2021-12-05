@@ -60,7 +60,7 @@ h5 {
 #cuisine {
   font-size: small;
 }
-#comment {
+#review {
   display: inline-block;
 }
 #results {
@@ -106,10 +106,6 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.side {
-  display: inline-block;
-
 }
 .rating-list li {
   float: right;

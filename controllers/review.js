@@ -1,14 +1,13 @@
 const express = require('express')
 const db = require('../models')
 const router = express.Router()
-const axios = require('axios')
 const isLoggedIn = require('../middleware/isLoggedIn')
 
 // POST route that will add a review to userRestaurant
 router.post('/', isLoggedIn, (req, res) => {
     db.review.create({
         name: req.params.name,
-        comment: req.body.comment,
+        review: req.body.review,
         userId: req.session.userId
     })
     .then(createdReview => {
@@ -31,7 +30,7 @@ router.get('/:id', isLoggedIn, (req, res) => {
         })
         .then(review => {
             console.log(`current review`, review?.dataValues)
-            res.render("comment", {id:req.params.id, result:result, review:review?.dataValues?.comments || ""})
+            res.render("review", {id:req.params.id, result:result, review:review?.dataValues?.review || ""})
         })
     })
 })
@@ -49,7 +48,7 @@ router.put('/:id', isLoggedIn, (req, res) => {
             if(review) {
                 // if a review exists, update it
                 db.review.update( 
-                    { comments: req.body.comment },
+                    { review: req.body.review },
                     { where: {restaurantId: req.params.id} }
                 )
                 .then(() => {
@@ -63,7 +62,7 @@ router.put('/:id', isLoggedIn, (req, res) => {
                 db.review.create({ 
                     restaurantId: req.params.id,
                     userId: req.session.userId,
-                    comments: req.body.comment
+                    review: req.body.review
                 })
                 .then(() => {
                     console.log('added review')   
