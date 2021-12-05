@@ -1,9 +1,11 @@
-<nav >
+<nav>
     <% if(!currentUser){ %>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/login">Login</a>
-    <%} else { %>
-    <a href="/users/profile"> <%= currentUser.name %></a>
-    <a href="/auth/logout">Logout</a>
-<% } %>
+        <a href="/auth/signup">Signup</a>
+        <a href="/auth/login">Login</a>
+        <%} else { %>
+            <a href="/users/profile">
+                <%= currentUser.name %>
+            </a>
+            <a href="/auth/logout">Logout</a>
+            <% } %>
 </nav>
