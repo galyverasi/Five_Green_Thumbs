@@ -35,13 +35,12 @@ ___
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
-| GET | `/search/results` | display a list of restaurants |
-| GET | `/search` | save a restaurant in profile |
+| GET | `/search` | search for restaurants |
+| GET | `/search/results` | display a list of searched restaurants |
 | GET | `/profile` | display saved restaurants |
-| POST | `/profile/comment/:id` | add a comment |
+| POST | `/review/:id` | add a review |
 | DELETE | `/:name` | delete a restaurant |
-| GET | `/comment/:id` | render comment page |
-| PUT | `/comment/:id` | edit a comment |
+| PUT | `/review/:id` | update a review |
 
 #### Entity Relationship Diagram<br>
 ___
