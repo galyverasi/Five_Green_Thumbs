@@ -53,7 +53,9 @@ app.use('/review', require('./controllers/review.js'))
 app.get('/', (req, res)=>{
     res.render('home')
 })
-
+app.get('*', (req, res)=>{
+    res.render('error')
+})
 app.listen(process.env.PORT || 3000, ()=>{
     // console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("listening on port 3000 ")
