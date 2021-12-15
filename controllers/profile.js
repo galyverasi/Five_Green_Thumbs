@@ -7,6 +7,7 @@ const isLoggedIn = require('../middleware/isLoggedIn')
 router.get('/', isLoggedIn, (req, res) => {
     let tempResults = []
     function render() {
+        console.log(tempResults)
         res.render('profile', { name: req.params.name, currentUser: req.session.user, results: tempResults })
     }
     db.userRestaurant.findAll({
