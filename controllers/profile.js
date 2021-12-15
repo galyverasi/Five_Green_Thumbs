@@ -22,7 +22,7 @@ router.get('/', isLoggedIn, (req, res) => {
                 })
                     .then(review => {
                         i++
-                        if (review) { tempReview = `"${review.dataValues.review}"` ; console.log('found a review') }
+                        if (review) { tempReview = `"${review.dataValues.review}"` }
                         tempResults.push({
                             ...uRes.dataValues,
                             review: tempReview
