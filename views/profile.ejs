@@ -15,16 +15,18 @@
                             <%= result.name %>
                         </h6>
                         <div style="display: flex; justify-content: flex-end">
-                        <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
-                            <button style="padding-right: 5px"id="btn" type="submit"><i  class="bi bi-trash"></i></button>
-                        </form>
-                        <form action="/review/<%= result.id %>" method="GET">
-                            <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
-                        </form>
+                            <form action="/profile/<%= result.name %>/?_method=DELETE" method="POST">
+                                <button style="padding-right: 5px" id="btn" type="submit"><i
+                                        class="bi bi-trash"></i></button>
+                            </form>
+                            <form action="/review/<%= result.id %>" method="GET">
+                                <button id="btn" type="submit"><i class="bi bi-pen"></i></button>
+                            </form>
                         </div>
                     </div>
-                        <h6 style="padding: 16px"><%= result.review %></h6>
-
+                    <h6 style="padding: 16px">
+                        <%= result.review %>
+                    </h6>
                 </div>
             </div>
             <%})%>
