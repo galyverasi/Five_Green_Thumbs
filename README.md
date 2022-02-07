@@ -1,7 +1,7 @@
 # Plant Grub
 [plantgrub.herokuapp.com](https://plantgrub.herokuapp.com/)
 ___
-![homepage](public/images/home.png)
+![mockup](public/images/mockup.png)
 #### Requirements
 ___
 
@@ -15,11 +15,17 @@ ___
 
 #### Technologies Used
 ___
-* HTML5
-* CSS3
-* Node
+* Node.js
+* Express.js
 * PostgreSQL
 * Sequelize
+* HTML5
+* CSS3
+
+#### Wireframes
+___
+![wireframe](public/images/wireframe.png)
+![wireframe2](public/images/wireframe2.png)
 
 #### User Stories
 ___
