@@ -30,7 +30,7 @@ router.get('/:id', isLoggedIn, (req, res) => {
         })
         .then(review => {
             console.log(`current review`, review?.dataValues)
-            res.redirect("review", {id:req.params.id, result:result, review:review?.dataValues?.review || ""})
+            res.render("review", {id:req.params.id, result:result, review:review?.dataValues?.review || ""})
         })
     })
 })
